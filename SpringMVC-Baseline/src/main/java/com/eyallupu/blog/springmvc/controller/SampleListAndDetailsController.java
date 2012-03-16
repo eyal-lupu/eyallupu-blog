@@ -14,6 +14,7 @@ public class SampleListAndDetailsController {
 
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public Collection<Customer> listAll() {
+		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7");
 		return Collections.emptyList();
 	}
 }
