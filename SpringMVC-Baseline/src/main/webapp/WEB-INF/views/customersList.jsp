@@ -11,7 +11,7 @@
 
 			<tbody>
 				<c:forEach items="${customers}" var="currCustomer">
-					<tr><td>${currCustomer.firstName}</td><td>${currCustomer.lastName}</td></tr>
+					<tr><td><a href="edit?id=${currCustomer.id}">${currCustomer.firstName}</a></td><td>${currCustomer.lastName}</td></tr>
 				</c:forEach>
 			</tbody>
 

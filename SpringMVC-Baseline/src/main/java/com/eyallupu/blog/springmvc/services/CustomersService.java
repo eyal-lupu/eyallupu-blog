@@ -26,5 +26,8 @@ public class CustomersService {
 		return Collections.unmodifiableCollection(customers.values());
 	}
 
+	public Customer loadById(String id) {
+		return customers.get(id);
+	}
 	private CustomersService() {}
 }
