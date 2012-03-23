@@ -29,7 +29,7 @@ public class CustomersController {
 		return listAll();
 	}
 
-	@RequestMapping(value="save", method=RequestMethod.GET, params="cancel")
+	@RequestMapping(value="save", method=RequestMethod.POST, params="cancel")
 	public ModelAndView cancel() {
 		return listAll();
 	}
