@@ -30,4 +30,8 @@ public class CustomersService {
 		return customers.get(id);
 	}
 	private CustomersService() {}
+
+	public void save(Customer customer) {
+		customers.put(customer.getId(), customer);
+	}
 }
