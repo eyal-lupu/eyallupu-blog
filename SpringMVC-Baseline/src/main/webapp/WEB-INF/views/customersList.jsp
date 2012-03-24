@@ -3,18 +3,19 @@
 
 	<head>
 		<script src="../../static/jquery-1.7.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../static/commons.css"/>
 	</head>
 	
 	<body>
 		<table>
-			<thead><tr><td>First</td><td>Last</td></tr></thead>
+			<tr><th>First</th><th>Last</th></tr>
 
-			<tbody>
 				<c:forEach items="${customers}" var="currCustomer">
 					<tr><td><a href="edit?id=${currCustomer.id}">${currCustomer.firstName}</a></td><td>${currCustomer.lastName}</td></tr>
 				</c:forEach>
-			</tbody>
 
 		</table>
+		
+		<a href="add" class="linkBtn">Add new...</a>
 </body>
 </html>

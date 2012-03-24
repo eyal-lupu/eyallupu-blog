@@ -34,4 +34,10 @@ public class CustomersController {
 		return listAll();
 	}
 
+	@RequestMapping(value="add", method=RequestMethod.GET)
+	public ModelAndView add() {
+		Customer customer = new Customer();
+		return new ModelAndView("customerDetails", "customer", customer);
+	}
+
 }
