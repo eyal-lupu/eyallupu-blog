@@ -56,6 +56,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.expression</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>org.springframework.test</artifactId>
 			<version>${spring.version}</version>
 			<scope>test</scope>
@@ -163,7 +168,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 		-->
 	</pluginRepositories>
 	<properties>
-		<spring.version>3.1.1.RELEASE</spring.version>
+		<spring.version>3.2.0.RELEASE</spring.version>
 		<aspectj.version>1.6.6.RELEASE</aspectj.version>
 		<hibernate.version>3.5.6-Final</hibernate.version>
 		<hibernate.version.4>4.0.0.Alpha2</hibernate.version.4>
