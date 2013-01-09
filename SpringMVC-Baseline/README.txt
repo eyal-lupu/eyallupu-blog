@@ -2,7 +2,7 @@ Introduction:
 Spring MVC based web application which I'm using for my blog posts about Spring MVC.
   
 Prerequisites:
-1. JDK 1.5 or above
+1. JDK 1.7 or above
 2. Apache Maven 3.0.1 or above
 
 Starting Web server:
