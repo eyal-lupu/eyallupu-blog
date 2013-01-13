@@ -9,7 +9,7 @@ Starting Web server:
   mvn jetty:run-exploded
   
 Access using the browser:
- http://localhost:8080/spring-mvc-async-controller/do/customers/list
+ http://localhost:8080/do/customers/list
  
 Github repository URL:
 https://github.com/eyal-lupu/eyallupu-blog
