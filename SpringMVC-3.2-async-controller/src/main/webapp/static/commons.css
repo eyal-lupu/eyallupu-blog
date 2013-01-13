@@ -1,0 +1,52 @@
+/* F4C59F A8886D F5F19F */ 
+.actionsBlock {
+}
+
+.input {
+    border: 1px solid #006;
+    background: #FFFFCC;
+}
+.button {
+    border: 1px solid #006;
+}
+
+.button:hover {
+    border: 1px solid #f00;
+    background: #eef;
+}
+
+.linkBtn{
+    font: bold 11px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+}
+label {
+    display: block;
+    width: 150px;
+    float: left;
+    margin: 2px 4px 6px 4px;
+    text-align: right;
+}
+
+br { clear: left; }
+
+table {
+	width: 100%;
+}
+
+
+table, td, th {
+	border: black;
+}
+
+th {
+	background-color: #FFFFCC;
+	color:black;
+	text-transform: uppercase;
+}
