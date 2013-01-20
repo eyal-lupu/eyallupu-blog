@@ -14,4 +14,16 @@
 		<url-pattern>/do/*</url-pattern>
 	</servlet-mapping>
 	
+	<!-- Async example servlet -->
+	<servlet>
+		<servlet-name>async-servlet</servlet-name>
+		<servlet-class>com.eyallupu.blog.servlet.AsyncServlet</servlet-class>
+		<async-supported>true</async-supported>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>async-servlet</servlet-name>
+		<url-pattern>/get-balance</url-pattern>
+	</servlet-mapping>
+
 </web-app>
