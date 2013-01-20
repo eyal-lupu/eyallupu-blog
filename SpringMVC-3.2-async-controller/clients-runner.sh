@@ -1,6 +1,5 @@
-#!/bin/bash
-loopCount=$1
-: ${loopCount:=10}
+#!/bin/sh
+loopCount=${1-10}
 echo Simulating $loopCount clients
 
 for z in $(eval echo {1..$loopCount}) ; do
