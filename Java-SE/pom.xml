@@ -1,0 +1,147 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>eyal.lupu</groupId>
+	<artifactId>java-se-entries</artifactId>
+	<version>1.0</version>
+	<name>Java SE blog entries</name>
+	<packaging>jar</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<inherited>true</inherited>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<optimise>true</optimise>
+					<debug>true</debug>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- commons -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Spring dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.expression</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.web.servlet</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.10</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+			</exclusions>
+
+		</dependency>
+
+	</dependencies>
+	<repositories>
+		<repository>
+			<id>jboss</id>
+			<name>JBoss repository</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public</url>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.bundles.release</id>
+			<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
+			<url>http://repository.springsource.com/maven/bundles/release</url>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.bundles.external</id>
+			<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+			<url>http://repository.springsource.com/maven/bundles/external</url>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.bundles.milestone</id>
+			<name>SpringSource Enterprise Bundle Repository - External Bundle
+				Milestones</name>
+			<url>http://repository.springsource.com/maven/bundles/milestone</url>
+		</repository>
+		<!-- required for some plugins that depend on snapshots -->
+		<!-- <repository> <id>com.springsource.repository.bundles.snapshot</id> 
+			<name>SpringSource Enterprise Bundle Repository - External Bundle Snapshots</name> 
+			<url>http://repository.springsource.com/maven/bundles/snapshot</url> </repository> -->
+	</repositories>
+	<pluginRepositories>
+		<!-- <pluginRepository> <id>com.springsource.repository.bundles.release</id> 
+			<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name> 
+			<url>http://repository.springsource.com/maven/bundles/release</url> </pluginRepository> 
+			<pluginRepository> <id>com.springsource.repository.bundles.external</id> 
+			<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name> 
+			<url>http://repository.springsource.com/maven/bundles/external</url> </pluginRepository> 
+			<pluginRepository> <id>com.springsource.repository.bundles.milestone</id> 
+			<name>SpringSource Enterprise Bundle Repository - External Bundle Milestones</name> 
+			<url>http://repository.springsource.com/maven/bundles/milestone</url> </pluginRepository> -->
+	</pluginRepositories>
+	<properties>
+		<spring.version>3.2.0.RELEASE</spring.version>
+		<aspectj.version>1.6.6.RELEASE</aspectj.version>
+		<hibernate.version>3.5.6-Final</hibernate.version>
+		<hibernate.version.4>4.0.0.Alpha2</hibernate.version.4>
+	</properties>
+
+</project>
