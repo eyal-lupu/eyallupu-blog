@@ -35,8 +35,9 @@ public class AsyncServlet extends HttpServlet {
 		public void run() {
 			try {
 				long balance = CreditService.instance.getBalance(null);
-				asyncContext.getResponse().getWriter().print(balance);
+				asyncContext.getResponse().getWriter().format("{ balance : '%d'}", balance);
 			} catch (Exception e) {
+				e.printStackTrace();
 				throw new RuntimeException("Request failed", e);
 			} finally {
 				asyncContext.complete();
