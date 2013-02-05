@@ -1,4 +1,4 @@
-package com.eyalllupu.blon.java7;
+package com.eyalllupu.blog.java7;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
