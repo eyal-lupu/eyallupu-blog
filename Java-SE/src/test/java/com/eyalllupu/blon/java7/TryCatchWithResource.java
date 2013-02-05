@@ -1,6 +1,6 @@
 package com.eyalllupu.blon.java7;
 
-import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -9,11 +9,11 @@ import org.junit.Test;
 
 public class TryCatchWithResource {
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IOWriteException.class)
 	public void testTraditionalTryCatch() throws IOException {
 		OutputStream os = null;
 		try {
-			os = new TraceableStream();
+			os = new TraceableStream("/tmp/x.x");
 			os.write(0);
 		} finally {
 			if (os != null) {
@@ -22,12 +22,11 @@ public class TryCatchWithResource {
 		}
 	}
 
-	@Test(expected = UnsupportedOperationException.class)
-	public void testTraditionalTryCatchWithExceptionOnFinally()
-			throws IOException {
+	@Test(expected = IOCloseException.class)
+	public void testTraditionalTryCatchWithExceptionOnFinally() throws IOException {
 		OutputStream os = null;
 		try {
-			os = new TraceableStream(true);
+			os = new TraceableStream(true, "/tmp/x.x");
 			os.write(0);
 		} finally {
 			if (os != null) {
@@ -36,17 +35,17 @@ public class TryCatchWithResource {
 		}
 	}
 
-	@Test(expected = UnsupportedOperationException.class)
+	@Test(expected = IOWriteException.class)
 	public void testJava7TryCatchWithExceptionOnFinally() throws IOException {
-		try (OutputStream os = new TraceableStream(true)) {
+		try (OutputStream os = new TraceableStream(true, "/tmp/x.x")) {
 			os.write(0);
 		}
 	}
 
-	@Test(expected = UnsupportedOperationException.class) 
+	@Test(expected = IOCloseException.class) 
 	public void testJava7TryCatchWithExceptionOnFinally2() throws Throwable {
 		try {
-			try (OutputStream os = new TraceableStream(true)) {
+			try (OutputStream os = new TraceableStream(true, "/tmp/x.x")) {
 				os.write(0);
 			}
 		} catch (Exception e) {
@@ -59,7 +58,7 @@ public class TryCatchWithResource {
 	@Test
 	public void testJava7TryCatchWhenClosed() throws Throwable {
 			TraceableStream streamRef = null; 
-			try (TraceableStream os = new TraceableStream(true)) {
+			try (TraceableStream os = new TraceableStream(true, "/tmp/x.x")) {
 				streamRef = os;
 				os.write(0);
 			} catch (Exception e) {
@@ -70,25 +69,25 @@ public class TryCatchWithResource {
 			}
 	}
 	
-	private static class TraceableStream extends ByteArrayOutputStream {
+	private static class TraceableStream extends FileOutputStream {
 
 		private final boolean throwExceptionOnClose;
 
 		private boolean isOpen = true;
 		
-		public TraceableStream(boolean throwExceptionOnClose) {
+		public TraceableStream(boolean throwExceptionOnClose, String path) throws IOException {
+			super(path);
 			this.throwExceptionOnClose = throwExceptionOnClose;
 		}
 
-		public TraceableStream() {
-			this(false);
+		public TraceableStream(String path) throws IOException {
+			this(false, path);
 		}
 
 		@Override
-		public synchronized void write(int b) {
+		public synchronized void write(int b) throws IOException{
 			if (0 == b) {
-				throw new IllegalArgumentException(
-						"This stream refuses to write the value 0.");
+				throw new IOWriteException("This stream refuses to write the value 0.");
 			} else {
 				super.write(b);
 			}
@@ -98,7 +97,7 @@ public class TryCatchWithResource {
 		public void close() throws IOException {
 			isOpen=false;
 			if (throwExceptionOnClose) {
-				throw new UnsupportedOperationException("I want to stay open");
+				throw new IOCloseException("I want to stay open");
 			}
 			super.close();
 		}
