@@ -1,4 +1,4 @@
-package com.eyalllupu.blog.java7;
+package com.eyalllupu.blog.java7.trywithresource;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -7,6 +7,10 @@ import java.io.OutputStream;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * @author eyal lupu
+ *
+ */
 public class TryCatchWithResource {
 
 	@Test(expected = IOWriteException.class)
@@ -53,6 +57,17 @@ public class TryCatchWithResource {
 		}
 	}
 
+	@Test 
+	public void testJava7TryCatchWithExceptionOnFinallyExtractingSuppressed() throws Throwable {
+		try (OutputStream os = new TraceableStream(true, "/tmp/x.x")) {
+				os.write(0);
+		} catch (IOException e) {
+			Throwable[] suppressed = e.getSuppressed();
+			for (Throwable t : suppressed) {
+				// Check T's type and decide on action to be taken
+			}
+		}
+	}
 	
 	// When does the close take place?
 	@Test

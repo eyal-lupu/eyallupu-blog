@@ -1,4 +1,4 @@
-package com.eyalllupu.blog.java7;
+package com.eyalllupu.blog.java7.trywithresource;
 
 import java.io.IOException;
 
