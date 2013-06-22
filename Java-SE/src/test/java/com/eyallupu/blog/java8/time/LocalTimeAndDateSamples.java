@@ -2,12 +2,18 @@ package com.eyallupu.blog.java8.time;
 
 import org.junit.Test;
 
-import java.time.*;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
+import java.time.Period;
+import java.time.ZoneId;
 
 /**
  * @author eyal lupu
  */
-public class LocalTimeAndDate {
+public class LocalTimeAndDateSamples {
 
     // TODO immutable
     @Test
