@@ -44,7 +44,7 @@ public class LocalTimeAndDateSamples {
     }
 
     @Test
-    public void locatTimeDateWithTZ() {
+    public void localTimeDateWithTZ() {
         // We can perform transformations using TZ, but still the result is not TZ related
         LocalDateTime localDateTime = LocalDateTime.now(ZoneId.of("UTC-10:00"));
         System.out.println(localDateTime);
