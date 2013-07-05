@@ -9,6 +9,7 @@ import java.time.LocalTime;
 import java.time.Month;
 import java.time.Period;
 import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 
 /**
  * @author eyal lupu
@@ -18,12 +19,21 @@ public class LocalTimeAndDateSamples {
     // TODO immutable
     @Test
     public void localDate() {
-        LocalDate localDate = LocalDate.of(2013, Month.AUGUST, 10);
+        LocalDate localDate = LocalDate.now();
+        System.out.println(localDate); // Just a date, no TZ
+
+        localDate = LocalDate.ofYearDay(2005, 86);
+        System.out.println(localDate); // Just a date, no TZ
+
+        localDate = LocalDate.of(2013, Month.AUGUST, 10);
         System.out.println(localDate); // Just a date, no TZ
 
         System.out.println(localDate.getDayOfWeek()); // It knows more than just the date
         System.out.println(localDate.getDayOfYear());
         System.out.println(localDate.getEra());
+
+        LocalDate localDate1 = localDate.plus(5, ChronoUnit.HOURS);
+        System.out.println(localDate.isBefore(localDate1));
 
     }
 
@@ -31,7 +41,16 @@ public class LocalTimeAndDateSamples {
     public void localTime() {
         LocalTime localTime = LocalTime.of(22, 33);
         System.out.println(localTime);
+
+        localTime = LocalTime.now();
+        System.out.println(localTime);
+
+        localTime = LocalTime.ofSecondOfDay(4503);
+        System.out.println(localTime);
+
         System.out.println(localTime.getHour());
+
+
     }
 
     @Test
@@ -51,7 +70,7 @@ public class LocalTimeAndDateSamples {
     }
 
     @Test
-    public void locatTimeDateCalculations() {
+    public void localTimeDateCalculations() {
 
         LocalDateTime localDateTime = LocalDateTime.now();
 
@@ -63,7 +82,7 @@ public class LocalTimeAndDateSamples {
         System.out.println(localDateTime.toLocalTime().plusHours(25).plusMinutes(3));
         System.out.println(localDateTime.toLocalDate().plusMonths(2));
 
-        // We could also use TemportalAmount (in this case a Duration and Period)
+        // We could also use TemporalAmount (in this case a Duration and Period)
         System.out.println(localDateTime.toLocalTime().plus(Duration.ofHours(25).plusMinutes(3)));
         System.out.println(localDateTime.toLocalDate().plus(Period.ofMonths(2)));
 

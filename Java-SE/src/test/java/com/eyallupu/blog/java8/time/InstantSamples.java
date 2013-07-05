@@ -51,7 +51,7 @@ public class InstantSamples {
         System.out.format("instant1.compareTo(instant)=%d.%n", instant1.compareTo(instant));
 
         // We can check to see which Instant is before/after the other
-        System.out.format("instant1.isAfter(instant)=%b, instant1.isBefore(instant)=%b.%n", instant1.isAfter(instant), instant1.isBefore(instant));
+        System.out.format("instant1.isAfter(instant=%b, instant1.isBefore(instant)=%b.%n", instant1.isAfter(instant), instant1.isBefore(instant));
 
     }
 }
