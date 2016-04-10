@@ -1,0 +1,4 @@
+language: java
+script: cd session-fixation-demo && mvn clean install
+notifications:
+  email: false
