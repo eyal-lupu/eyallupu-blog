@@ -1,6 +1,6 @@
 language: java
 jdk:
   - oraclejdk8
-script: cd session-fixation-demo && mvn clean install
+script: echo NOOP at the moment
 notifications:
-  email: false
+  email: true
